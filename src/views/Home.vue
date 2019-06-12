@@ -1,12 +1,21 @@
 <template>
   <div>
-    <h2>page home</h2>
+    <home-header></home-header>
   </div>
 </template>
 
 <script>
+  import HomeHeader from '@components/home/HomeHeader'
   export default {
-    
+    data() {
+      return {
+        
+      }
+    },
+    components: {
+      HomeHeader,
+
+    }
   }
 </script>
 
