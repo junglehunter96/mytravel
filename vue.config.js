@@ -8,10 +8,22 @@ module.exports = {
         config.resolve.alias
           .set('@', resolve('src'))
           .set('@assets', resolve('src/assets'))
-          .set('@styles', resolve('src/assets/styles'))
-          .set('@components', resolve('src/components'))
-          .set('@views', resolve('src/views'))
-          .set('@router', resolve('src/router'))
-          .set('@store', resolve('src/store'))
-    }
+          .set('styles', resolve('src/assets/styles'))
+          .set('components', resolve('src/components'))
+          .set('views', resolve('src/views'))
+          .set('router', resolve('src/router'))
+          .set('store', resolve('src/store'))
+    },
+    devServer: {
+      proxy: {
+        '/api': {
+          target:'http://localhost:8080',
+          changeOrign: true,
+          pathRewrite:{
+            '^/api': '/mock'
+          }
+        }
+      }
+  }
+
 }
