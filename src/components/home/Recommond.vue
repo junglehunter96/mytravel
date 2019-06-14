@@ -2,30 +2,30 @@
   <div class="recommond">
     <div class="like-list">
       <div class="like-tit">猜你喜欢</div>
-      <div class="like-item">
+      <div class="like-item border-bottom" v-for="(item,index) in recommondList" :key="index">
         <div class="img-wrapper">
-          <img class="item-img"  src="http://img1.qunarzz.com/sight/p0/1904/a2/a23ae48aac0c0ab2a3.water.jpg_200x200_38cef490.jpg">
+          <img class="item-img"  :src="item.imgUrl">
         </div>
         <div class="item-content">
-          <div class="item-name">西湖国家湿地公园</div>
-          <div class="item-eva"><span></span>286条评价</div>
+          <div class="item-name">{{item.desc}}</div>
+          
           <div class="item-ifo">
             <div>
-            <span class="ye">￥</span><span class="item-prise">70</span>起
+            <button class="item-button">查看详情</button>
             </div>
-            <div class="item-site">杭州</div>
+            <div class="item-site">{{item.site}}</div>
           </div>
         </div>
       </div>
       <div class="week-list">
         <div class="like-tit">周末去哪儿</div>
-        <div class="week-i">
+        <div class="week-i border-bottom" v-for="(el,index) of weekList" :key="index">
           <div class="week-wrapper">
-            <img class="week-img" src="http://img1.qunarzz.com/sight/source/1811/52/b6776b49d27025.jpg_r_640x214_35ae205c.jpg"/>
+            <img class="week-img" :src="el.imgUrl"/>
           </div>
           <div class="week-info">
-            <div class="week-name">美丽普陀山</div>
-            <div class="week-desc">人间仙境杭州，佛教圣地普陀山等你来玩！在这里静心接收佛家的洗礼，用心感受佛文化</div>
+            <div class="week-name">{{el.name}}</div>
+            <div class="week-desc">{{el.desc}}</div>
           </div>
         </div>
       </div>
@@ -36,7 +36,27 @@
 
 <script>
   export default {
-    
+    data() {
+      return {
+        recommondList: [
+          {
+            id: '001',
+            imgUrl: 'http://img1.qunarzz.com/sight/p0/1904/a2/a23ae48aac0c0ab2a3.water.jpg_200x200_38cef490.jpg',
+            desc: '西湖国家湿地公园',
+            site:'杭州'
+
+          }
+        ],
+        weekList:[
+          {
+            id:'001',
+            imgUrl:'http://img1.qunarzz.com/sight/source/1811/52/b6776b49d27025.jpg_r_640x214_35ae205c.jpg',
+            name:'美丽普陀山',
+            desc:'人间仙境杭州，佛教圣地普陀山等你来玩！在这里静心接收佛家的洗礼，用心感受佛文化'
+          }
+        ]
+      }
+    },
   }
 </script>
 
@@ -86,10 +106,9 @@
             color: #616161
             font-size: .24rem
             line-height: .4rem
-            .ye
-              color #ff8300
-            .item-prise
-              font-size .4rem
+            .item-button
+              font-size .3rem
+              background-color #fff
               color #ff8300
             .item-site
               position absolute 
