@@ -5,7 +5,7 @@ Vue.use(Router)
 
 const Home = () => import('./views/Home.vue');
 const City = () => import('./views/City.vue');
-
+const Detail = () => import('./views/Detail.vue')
 export default new Router({
   routes: [
     {
@@ -16,6 +16,10 @@ export default new Router({
       path:'/city',
       name:'city',
       component:City
+    },{
+      path:'/detail/:id',
+      name:'detail',
+      component:Detail
     }
   ]
 })
