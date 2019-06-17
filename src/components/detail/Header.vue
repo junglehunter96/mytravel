@@ -15,8 +15,10 @@
         class="icon iconback header-icon"
         @click.stop="backHome"
         :style = "headerStyle"
-      ></span>
-      景点详情</div>
+      >
+      </span>
+      景点详情
+    </div>
   </div>
 </template>
 
@@ -49,7 +51,6 @@ export default {
     }
   },
   activated () {
-    
     window.addEventListener('scroll', this.handerScroll)
   },
   deactivated() {
@@ -83,6 +84,4 @@ export default {
       position: absolute;
       left: 0.2rem;
       top: 0;
-    
-  
 </style>
