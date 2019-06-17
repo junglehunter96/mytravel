@@ -1,9 +1,6 @@
 <template>
   <div class="banner" @click.stop="handleBannerClick">
     <div class="wrapper">
-      <div class="backHome" @click.stop="backHome">
-        <span class="icon iconback"></span>
-      </div>
       <img class="showImg" src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg" />
       <div class="imgInfo">
         <div class="imgName">故宫(AAA景区)</div> 
@@ -32,13 +29,7 @@ import Gallery from 'common/Gallery'
       },
       handleGalleryClick() {
         this.showGallery = false
-      },
-      backHome() {
-        this.$router.push({
-          name: 'home'
-        })
-      }
-     
+      }  
     }
   }
 </script>
@@ -50,16 +41,6 @@ import Gallery from 'common/Gallery'
     width 100%
     height 0
     padding-bottom 55%
-    .backHome
-      position absolute
-      overflow hidden
-      width 1rem
-      height 1rem
-      top .2rem
-      left .2rem
-      .iconback
-       font-size .4rem 
-       color #fff
     .showImg
       width 100%
     .imgInfo

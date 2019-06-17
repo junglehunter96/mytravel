@@ -38,8 +38,7 @@ export default {
   },
   methods: {
     handleGalleryClick() {
-      this.$emit('GalleryClick')
-      console.log('galleryclick')
+      this.$emit('GalleryClick')   
     }
   },
 }
@@ -50,6 +49,7 @@ export default {
    overflow inherit
 .gallery 
   position: fixed
+  z-index 99
   top: 0
   bottom: 0
   left: 0
