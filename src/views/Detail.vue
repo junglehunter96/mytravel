@@ -1,8 +1,13 @@
 <template>
-  <div class="detail">
-    <detail-banner></detail-banner>
+  <div>
+    <detail-banner 
+    :bannerImg = "bannerImg"
+    :sightName = "sightName"
+    :gallaryImgs = "gallaryImgs">
+    </detail-banner>
     <detail-header></detail-header>
-    <detail-list :list="list"></detail-list>
+    <detail-list 
+    :list="list"></detail-list> 
   </div>
 </template>
 
@@ -13,18 +18,46 @@ import DetailList from 'components/detail/List'
   export default {
     data() {
       return {
-        list: []
+        list: [],
+        bannerImg: '',
+        sightName: '',
+        gallaryImgs: []
       }
     },
     components: {
       DetailBanner,
       DetailHeader,
       DetailList
-    }
+    },
+    methods: {
+      getList() {
+        this.$axios.get('/api/detail.json',{
+          params:{
+            id: this.$route.params.id
+          }
+        })
+        .then(this.getDataSuccess)
+      },
+      getDataSuccess(res) {
+        res = res.data
+        if(res.ret && res.data) {
+          const data = res.data
+          this.list = data.categoryList
+          this.bannerImg = data.bannerImg
+          this.sightName = data.sightName
+          this.gallaryImgs = data.gallaryImgs
+          console.log(this.gallaryImgs)
+        }
+        
+        
+      }
+    },
+    mounted () {
+      this.getList();
+    },
   }
 </script>
 
 <style lang="stylus" scoped>
-  .detail
-    height 50rem
+ 
 </style>
