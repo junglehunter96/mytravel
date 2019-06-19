@@ -13,16 +13,19 @@
         <div class="imgNumber"><span class="icon iconphoto"></span> {{gallaryImgs.length}}</div>
       </div>
     </div>
-    <gallery
-      v-show="showGallery"
-      @gallaryclose="handleGalleryClick"
-      :imglist="gallaryImgs"
-    ></gallery>
+    <fade>
+      <gallery
+        v-show="showGallery"
+        @gallaryclose="handleGalleryClick"
+        :imglist="gallaryImgs"
+      ></gallery>
+    </fade>
   </div>
 </template>
 
 <script>
 import Gallery from 'common/Gallary'
+import Fade from 'common/FadeAnimation'
 export default {
   name: 'banner',
   props: {
@@ -37,6 +40,7 @@ export default {
   },
   components: {
     Gallery,
+    Fade
   },
   methods: {
     handleBannerClick () {

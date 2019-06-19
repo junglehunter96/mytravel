@@ -15,7 +15,9 @@
 import DetailBanner from 'components/detail/Banner'
 import DetailHeader from 'components/detail/Header'
 import DetailList from 'components/detail/List'
+
   export default {
+    name: 'Detail',
     data() {
       return {
         list: [],
@@ -46,7 +48,7 @@ import DetailList from 'components/detail/List'
           this.bannerImg = data.bannerImg
           this.sightName = data.sightName
           this.gallaryImgs = data.gallaryImgs
-          console.log(this.gallaryImgs)
+          
         }
         
         
